@@ -42,6 +42,7 @@ namespace Deegautex
             cbxGender.Text = string.Empty;
             dtpDateOfBirth.Value = DateTime.Now;
             dtpJoinDate.Value = DateTime.Now;
+            txtSearch.Text = string.Empty;
         }
 
         private void FillGender()
@@ -60,7 +61,7 @@ namespace Deegautex
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (btnSave.Text=="Save")
+            if (btnSave.Text == "Save")
             {
                 if (txtName.Text == "" && txtPhone.Text == "")
                 {
@@ -86,12 +87,33 @@ namespace Deegautex
                     ClearText();
                     FillGrid();
                 }
-            }      
-            else if (btnSave.Text=="Edit")
+            }
+            else if (btnSave.Text == "Edit")
             {
-                MessageBox.Show(@"Data update not possible. Thank you.", "Data save Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ClearText();
-            }      
+                if (MessageBox.Show(@"Are you sure do you went to update information?", "Update Info!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    var db = new DGTDBEntities();
+                    var tb = db.TB_EmployeeInfo.Where(a => a.Id.ToString() == txtSearch.Text.Trim()).FirstOrDefault();
+
+                    tb.Name = txtName.Text.Trim();
+                    tb.Address = txtAddress.Text.Trim() + " (Information Edited.)";
+                    tb.Phone = Convert.ToInt32(txtPhone.Text.Trim());
+                    tb.GenderId = Convert.ToInt32(cbxGender.SelectedValue);
+                    tb.DateOfBirth = Convert.ToDateTime(dtpDateOfBirth.Value);
+                    tb.JoinDate = Convert.ToDateTime(dtpJoinDate.Value);
+                    tb.RefarName = txtReferName.Text.Trim();
+                    tb.R_Address = txtR_Address.Text.Trim();
+                    tb.R_Phone = Convert.ToInt32(txtR_Phone.Text.Trim());
+                    db.SaveChanges();
+                    FillGrid();
+                    ClearText();
+                }
+                else
+                {
+                    MessageBox.Show(@"You try to update information. But you cann't do it.", "Data record updated Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ClearText();
+                }
+            }
         }
 
         private void txtPhone_TextChanged(object sender, EventArgs e)
@@ -118,7 +140,7 @@ namespace Deegautex
                         btnSave.Enabled = false;
                     }
                 }
-                else if ( txtPhone.TextLength <= 10)
+                else if (txtPhone.TextLength <= 10)
                 {
                     btnSave.Enabled = false;
                 }
@@ -137,10 +159,11 @@ namespace Deegautex
 
         private void SearchItem()
         {
-            if (txtSearch.Text=="")
+            if (txtSearch.Text == "")
             {
                 //MessageBox.Show("Data not found. Please try again.","Search Failed!",MessageBoxButtons.RetryCancel,MessageBoxIcon.Exclamation);
                 ClearText();
+                btnSave.Text = "Save";
             }
             else if (txtSearch.Text != null)
             {
@@ -164,6 +187,8 @@ namespace Deegautex
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
+                    txtSearch.Text = string.Empty;
+                    txtSearch.Focus();
                 }
             }
         }
@@ -171,6 +196,11 @@ namespace Deegautex
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             SearchItem();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

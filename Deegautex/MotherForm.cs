@@ -158,7 +158,7 @@ namespace Deegautex
 
         private void MotherForm_Load(object sender, EventArgs e)
         {
-            SecurityAlart();
+            //SecurityAlart();
         }
 
         private void SecurityAlart()
