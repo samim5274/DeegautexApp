@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -50,6 +53,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.dgvEmplyee = new System.Windows.Forms.DataGridView();
+            this.dGTDBDataSet = new Deegautex.DGTDBDataSet();
+            this.tBEmployeeInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tB_EmployeeInfoTableAdapter = new Deegautex.DGTDBDataSetTableAdapters.TB_EmployeeInfoTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmplyee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGTDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBEmployeeInfoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -76,6 +90,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(321, 29);
             this.txtPhone.TabIndex = 2;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // dtpDateOfBirth
             // 
@@ -164,13 +179,15 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(397, 556);
+            this.btnSave.Location = new System.Drawing.Point(397, 557);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(321, 49);
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
@@ -258,11 +275,99 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Refer Phone";
             // 
+            // dgvEmplyee
+            // 
+            this.dgvEmplyee.AllowUserToAddRows = false;
+            this.dgvEmplyee.AllowUserToDeleteRows = false;
+            this.dgvEmplyee.AutoGenerateColumns = false;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEmplyee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvEmplyee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmplyee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dgvEmplyee.DataSource = this.tBEmployeeInfoBindingSource;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEmplyee.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvEmplyee.Location = new System.Drawing.Point(774, 115);
+            this.dgvEmplyee.Name = "dgvEmplyee";
+            this.dgvEmplyee.ReadOnly = true;
+            this.dgvEmplyee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmplyee.Size = new System.Drawing.Size(412, 555);
+            this.dgvEmplyee.TabIndex = 19;
+            this.dgvEmplyee.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvEmplyee_CellMouseClick);
+            // 
+            // dGTDBDataSet
+            // 
+            this.dGTDBDataSet.DataSetName = "DGTDBDataSet";
+            this.dGTDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tBEmployeeInfoBindingSource
+            // 
+            this.tBEmployeeInfoBindingSource.DataMember = "TB_EmployeeInfo";
+            this.tBEmployeeInfoBindingSource.DataSource = this.dGTDBDataSet;
+            // 
+            // tB_EmployeeInfoTableAdapter
+            // 
+            this.tB_EmployeeInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Serial No";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Emplyee Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Silver;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(1167, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 24);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Search";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(927, 34);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(216, 29);
+            this.txtSearch.TabIndex = 20;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // EmplyeeInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 729);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.dgvEmplyee);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -288,8 +393,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmplyeeInfoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmplyeeInfoForm";
             this.Load += new System.EventHandler(this.EmplyeeInfoForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmplyee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGTDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBEmployeeInfoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +428,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgvEmplyee;
+        private DGTDBDataSet dGTDBDataSet;
+        private System.Windows.Forms.BindingSource tBEmployeeInfoBindingSource;
+        private DGTDBDataSetTableAdapters.TB_EmployeeInfoTableAdapter tB_EmployeeInfoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

@@ -72,6 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DGT.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DGTDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DGTDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EmplyeeInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +158,17 @@
     </EntityDeploy>
     <None Include="DGT.edmx.diagram">
       <DependentUpon>DGT.edmx</DependentUpon>
+    </None>
+    <None Include="DGTDBDataSet.xsc">
+      <DependentUpon>DGTDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DGTDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DGTDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DGTDBDataSet.xss">
+      <DependentUpon>DGTDBDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
