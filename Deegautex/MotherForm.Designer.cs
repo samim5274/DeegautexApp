@@ -34,6 +34,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imTakingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.followUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accessoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.imTakingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.joinNewEmloyeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -111,6 +112,13 @@
             this.transectionToolStripMenuItem.Text = "Transection";
             this.transectionToolStripMenuItem.Visible = false;
             // 
+            // imTakingToolStripMenuItem
+            // 
+            this.imTakingToolStripMenuItem.Name = "imTakingToolStripMenuItem";
+            this.imTakingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.imTakingToolStripMenuItem.Text = "I\'m Taking";
+            this.imTakingToolStripMenuItem.Click += new System.EventHandler(this.imTakingToolStripMenuItem_Click);
+            // 
             // followUpToolStripMenuItem
             // 
             this.followUpToolStripMenuItem.Name = "followUpToolStripMenuItem";
@@ -127,6 +135,8 @@
             // 
             // settingToolStripMenuItem
             // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.joinNewEmloyeeToolStripMenuItem});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
             this.settingToolStripMenuItem.Size = new System.Drawing.Size(69, 22);
             this.settingToolStripMenuItem.Text = "Setting";
@@ -272,12 +282,12 @@
             this.txtUsername.TabIndex = 7;
             this.txtUsername.Text = "samim";
             // 
-            // imTakingToolStripMenuItem
+            // joinNewEmloyeeToolStripMenuItem
             // 
-            this.imTakingToolStripMenuItem.Name = "imTakingToolStripMenuItem";
-            this.imTakingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.imTakingToolStripMenuItem.Text = "I\'m Taking";
-            this.imTakingToolStripMenuItem.Click += new System.EventHandler(this.imTakingToolStripMenuItem_Click);
+            this.joinNewEmloyeeToolStripMenuItem.Name = "joinNewEmloyeeToolStripMenuItem";
+            this.joinNewEmloyeeToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.joinNewEmloyeeToolStripMenuItem.Text = "Join New Emloyee";
+            this.joinNewEmloyeeToolStripMenuItem.Click += new System.EventHandler(this.joinNewEmloyeeToolStripMenuItem_Click);
             // 
             // MotherForm
             // 
@@ -329,5 +339,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem imTakingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem joinNewEmloyeeToolStripMenuItem;
     }
 }

@@ -205,7 +205,12 @@ namespace Deegautex
         private void imTakingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var obj = new TakingForm();
-            //obj.MdiParent = this;
+            obj.ShowDialog();
+        }
+
+        private void joinNewEmloyeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var obj = new EmplyeeInfoForm();
             obj.ShowDialog();
         }
     }

@@ -5,8 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="bd93b5369ec849d5b47c8148d1dbd43a" Name="Diagram1">
-        <EntityTypeShape EntityType="DGTDBModel.TB_Security" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DGTDBModel.TB_UserInfo" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DGTDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DGTDBModel.TB_EmployeeInfo" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="DGTDBModel.TB_GenderInfo" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="DGTDBModel.TB_MoneyGiven" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="DGTDBModel.TB_MoneyTaking" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="DGTDBModel.TB_Security" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DGTDBModel.TB_UserInfo" Width="1.5" PointX="7.75" PointY="3.75" />
+        <AssociationConnector Association="DGTDBModel.FK_TB_EmployeeInfo_TB_GenderInfo" />
+        <AssociationConnector Association="DGTDBModel.FK_TB_MoneyGiven_TB_EmployeeInfo" />
+        <AssociationConnector Association="DGTDBModel.FK_TB_MoneyTaking_TB_EmployeeInfo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

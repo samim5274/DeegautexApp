@@ -1,9 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DGTDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DGTDBEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(DGTDBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(DGTDBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="sysdiagrams" EntityType="DGTDBModel.sysdiagram" />
+    <EntitySet Name="TB_EmployeeInfo" EntityType="DGTDBModel.TB_EmployeeInfo" />
+    <EntitySet Name="TB_GenderInfo" EntityType="DGTDBModel.TB_GenderInfo" />
+    <EntitySet Name="TB_MoneyGiven" EntityType="DGTDBModel.TB_MoneyGiven" />
+    <EntitySet Name="TB_MoneyTaking" EntityType="DGTDBModel.TB_MoneyTaking" />
     <EntitySet Name="TB_Security" EntityType="DGTDBModel.TB_Security" />
     <EntitySet Name="TB_UserInfo" EntityType="DGTDBModel.TB_UserInfo" />
+    <AssociationSet Name="FK_TB_EmployeeInfo_TB_GenderInfo" Association="DGTDBModel.FK_TB_EmployeeInfo_TB_GenderInfo">
+      <End Role="TB_GenderInfo" EntitySet="TB_GenderInfo" />
+      <End Role="TB_EmployeeInfo" EntitySet="TB_EmployeeInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_MoneyGiven_TB_EmployeeInfo" Association="DGTDBModel.FK_TB_MoneyGiven_TB_EmployeeInfo">
+      <End Role="TB_EmployeeInfo" EntitySet="TB_EmployeeInfo" />
+      <End Role="TB_MoneyGiven" EntitySet="TB_MoneyGiven" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_MoneyTaking_TB_EmployeeInfo" Association="DGTDBModel.FK_TB_MoneyTaking_TB_EmployeeInfo">
+      <End Role="TB_EmployeeInfo" EntitySet="TB_EmployeeInfo" />
+      <End Role="TB_MoneyTaking" EntitySet="TB_MoneyTaking" />
+    </AssociationSet>
   </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TB_EmployeeInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="JoinDate" Type="DateTime" Precision="0" />
+    <Property Name="GenderId" Type="Int32" />
+    <Property Name="RefarName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="R_Address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="R_Phone" Type="Int32" />
+    <NavigationProperty Name="TB_GenderInfo" Relationship="DGTDBModel.FK_TB_EmployeeInfo_TB_GenderInfo" FromRole="TB_EmployeeInfo" ToRole="TB_GenderInfo" />
+    <NavigationProperty Name="TB_MoneyGiven" Relationship="DGTDBModel.FK_TB_MoneyGiven_TB_EmployeeInfo" FromRole="TB_EmployeeInfo" ToRole="TB_MoneyGiven" />
+    <NavigationProperty Name="TB_MoneyTaking" Relationship="DGTDBModel.FK_TB_MoneyTaking_TB_EmployeeInfo" FromRole="TB_EmployeeInfo" ToRole="TB_MoneyTaking" />
+  </EntityType>
+  <EntityType Name="TB_GenderInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_EmployeeInfo" Relationship="DGTDBModel.FK_TB_EmployeeInfo_TB_GenderInfo" FromRole="TB_GenderInfo" ToRole="TB_EmployeeInfo" />
+  </EntityType>
+  <EntityType Name="TB_MoneyGiven">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="GiverId" Type="Int32" />
+    <Property Name="Purpose" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TotalMoney" Type="Int32" />
+    <Property Name="LoginUserName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_EmployeeInfo" Relationship="DGTDBModel.FK_TB_MoneyGiven_TB_EmployeeInfo" FromRole="TB_MoneyGiven" ToRole="TB_EmployeeInfo" />
+  </EntityType>
+  <EntityType Name="TB_MoneyTaking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="ReceiverId" Type="Int32" />
+    <Property Name="Purpose" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TotalMoney" Type="Int32" />
+    <Property Name="LoginUserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_EmployeeInfo" Relationship="DGTDBModel.FK_TB_MoneyTaking_TB_EmployeeInfo" FromRole="TB_MoneyTaking" ToRole="TB_EmployeeInfo" />
+  </EntityType>
   <EntityType Name="TB_Security">
     <Key>
       <PropertyRef Name="Id" />
@@ -26,4 +146,40 @@
     <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
+  <Association Name="FK_TB_EmployeeInfo_TB_GenderInfo">
+    <End Type="DGTDBModel.TB_GenderInfo" Role="TB_GenderInfo" Multiplicity="0..1" />
+    <End Type="DGTDBModel.TB_EmployeeInfo" Role="TB_EmployeeInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_GenderInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_EmployeeInfo">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_MoneyGiven_TB_EmployeeInfo">
+    <End Type="DGTDBModel.TB_EmployeeInfo" Role="TB_EmployeeInfo" Multiplicity="0..1" />
+    <End Type="DGTDBModel.TB_MoneyGiven" Role="TB_MoneyGiven" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_EmployeeInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_MoneyGiven">
+        <PropertyRef Name="GiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_MoneyTaking_TB_EmployeeInfo">
+    <End Type="DGTDBModel.TB_EmployeeInfo" Role="TB_EmployeeInfo" Multiplicity="0..1" />
+    <End Type="DGTDBModel.TB_MoneyTaking" Role="TB_MoneyTaking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_EmployeeInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_MoneyTaking">
+        <PropertyRef Name="ReceiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

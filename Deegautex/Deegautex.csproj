@@ -72,6 +72,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DGT.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EmplyeeInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmplyeeInfoForm.Designer.cs">
+      <DependentUpon>EmplyeeInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs" />
     <Compile Include="MotherForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,11 +93,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>DGT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>DGT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>DGT.tt</DependentUpon>
+    </Compile>
     <Compile Include="TakingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TakingForm.Designer.cs">
       <DependentUpon>TakingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TB_EmployeeInfo.cs">
+      <DependentUpon>DGT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_GenderInfo.cs">
+      <DependentUpon>DGT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_MoneyGiven.cs">
+      <DependentUpon>DGT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TB_MoneyTaking.cs">
+      <DependentUpon>DGT.tt</DependentUpon>
     </Compile>
     <Compile Include="TB_Security.cs">
       <DependentUpon>DGT.tt</DependentUpon>
@@ -98,6 +126,9 @@
     <Compile Include="TB_UserInfo.cs">
       <DependentUpon>DGT.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EmplyeeInfoForm.resx">
+      <DependentUpon>EmplyeeInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MotherForm.resx">
       <DependentUpon>MotherForm.cs</DependentUpon>
     </EmbeddedResource>

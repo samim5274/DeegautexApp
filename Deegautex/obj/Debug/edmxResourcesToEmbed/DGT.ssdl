@@ -1,5 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DGTDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TB_EmployeeInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="500" />
+    <Property Name="Phone" Type="int" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="JoinDate" Type="date" />
+    <Property Name="GenderId" Type="int" />
+    <Property Name="RefarName" Type="varchar" MaxLength="50" />
+    <Property Name="R_Address" Type="varchar" MaxLength="500" />
+    <Property Name="R_Phone" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_GenderInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_MoneyGiven">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="GiverId" Type="int" />
+    <Property Name="Purpose" Type="varchar" MaxLength="500" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="TotalMoney" Type="int" />
+    <Property Name="LoginUserName" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="TB_MoneyTaking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="ReceiverId" Type="int" />
+    <Property Name="Purpose" Type="varchar" MaxLength="500" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="TotalMoney" Type="int" />
+    <Property Name="LoginUserName" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="TB_Security">
     <Key>
       <PropertyRef Name="Id" />
@@ -22,8 +78,92 @@
     <Property Name="FirstName" Type="varchar" MaxLength="200" />
     <Property Name="LastName" Type="varchar" MaxLength="200" />
   </EntityType>
+  <Association Name="FK_TB_EmployeeInfo_TB_GenderInfo">
+    <End Role="TB_GenderInfo" Type="Self.TB_GenderInfo" Multiplicity="0..1" />
+    <End Role="TB_EmployeeInfo" Type="Self.TB_EmployeeInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_GenderInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_EmployeeInfo">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_MoneyGiven_TB_EmployeeInfo">
+    <End Role="TB_EmployeeInfo" Type="Self.TB_EmployeeInfo" Multiplicity="0..1" />
+    <End Role="TB_MoneyGiven" Type="Self.TB_MoneyGiven" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_EmployeeInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_MoneyGiven">
+        <PropertyRef Name="GiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_MoneyTaking_TB_EmployeeInfo">
+    <End Role="TB_EmployeeInfo" Type="Self.TB_EmployeeInfo" Multiplicity="0..1" />
+    <End Role="TB_MoneyTaking" Type="Self.TB_MoneyTaking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_EmployeeInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TB_MoneyTaking">
+        <PropertyRef Name="ReceiverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="DGTDBModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_EmployeeInfo" EntityType="Self.TB_EmployeeInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_GenderInfo" EntityType="Self.TB_GenderInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_MoneyGiven" EntityType="Self.TB_MoneyGiven" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_MoneyTaking" EntityType="Self.TB_MoneyTaking" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Security" EntityType="Self.TB_Security" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_UserInfo" EntityType="Self.TB_UserInfo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TB_EmployeeInfo_TB_GenderInfo" Association="Self.FK_TB_EmployeeInfo_TB_GenderInfo">
+      <End Role="TB_GenderInfo" EntitySet="TB_GenderInfo" />
+      <End Role="TB_EmployeeInfo" EntitySet="TB_EmployeeInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_MoneyGiven_TB_EmployeeInfo" Association="Self.FK_TB_MoneyGiven_TB_EmployeeInfo">
+      <End Role="TB_EmployeeInfo" EntitySet="TB_EmployeeInfo" />
+      <End Role="TB_MoneyGiven" EntitySet="TB_MoneyGiven" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_MoneyTaking_TB_EmployeeInfo" Association="Self.FK_TB_MoneyTaking_TB_EmployeeInfo">
+      <End Role="TB_EmployeeInfo" EntitySet="TB_EmployeeInfo" />
+      <End Role="TB_MoneyTaking" EntitySet="TB_MoneyTaking" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>
