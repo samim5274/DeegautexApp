@@ -1,0 +1,28 @@
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\bin\Debug\Deegautex.exe.config
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\bin\Debug\Deegautex.exe
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\bin\Debug\Deegautex.pdb
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\obj\Debug\Deegautex.csprojResolveAssemblyReference.cache
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\obj\Debug\Deegautex.MotherForm.resources
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\obj\Debug\Deegautex.Properties.Resources.resources
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\obj\Debug\Deegautex.csproj.GenerateResource.Cache
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\obj\Debug\Deegautex.exe
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\obj\Debug\Deegautex.pdb
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\bin\Debug\EntityFramework.dll
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\bin\Debug\EntityFramework.xml
+C:\Users\IT-Conputer\Desktop\Deegautex\Deegautex\bin\Debug\EntityFramework.SqlServer.xml
+F:\IT\Application\Desktop App\Deegautex\Deegautex\bin\Debug\Deegautex.exe.config
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.exe
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.pdb
+F:\IT\Application\Desktop App\Deegautex\Deegautex\bin\Debug\Deegautex.exe
+F:\IT\Application\Desktop App\Deegautex\Deegautex\bin\Debug\Deegautex.pdb
+F:\IT\Application\Desktop App\Deegautex\Deegautex\bin\Debug\EntityFramework.dll
+F:\IT\Application\Desktop App\Deegautex\Deegautex\bin\Debug\EntityFramework.SqlServer.dll
+F:\IT\Application\Desktop App\Deegautex\Deegautex\bin\Debug\EntityFramework.xml
+F:\IT\Application\Desktop App\Deegautex\Deegautex\bin\Debug\EntityFramework.SqlServer.xml
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.csprojResolveAssemblyReference.cache
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.MotherForm.resources
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.Properties.Resources.resources
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.csproj.GenerateResource.Cache
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.TakingForm.resources
+F:\IT\Application\Desktop App\Deegautex\Deegautex\obj\Debug\Deegautex.MotherForm2.resources

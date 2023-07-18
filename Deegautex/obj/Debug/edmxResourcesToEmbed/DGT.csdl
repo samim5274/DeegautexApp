@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DGTDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DGTDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_Security" EntityType="DGTDBModel.TB_Security" />
+    <EntitySet Name="TB_UserInfo" EntityType="DGTDBModel.TB_UserInfo" />
+  </EntityContainer>
+  <EntityType Name="TB_Security">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Security" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TB_UserInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="D" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="T" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="F" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="A" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="S" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
