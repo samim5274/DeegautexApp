@@ -170,5 +170,15 @@ namespace Deegautex
         {
             this.Close();
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearText();
+        }
+
+        private void btnGClear_Click(object sender, EventArgs e)
+        {
+            ClearTextG();
+        }
     }
 }

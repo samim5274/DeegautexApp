@@ -41,7 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnGClear = new System.Windows.Forms.Button();
             this.txtGRemark = new System.Windows.Forms.TextBox();
             this.btnGSave = new System.Windows.Forms.Button();
             this.dtpGDate = new System.Windows.Forms.DateTimePicker();
@@ -175,6 +177,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.txtRemark);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.dtpDate);
@@ -191,8 +194,20 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(193, 529);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(297, 42);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnGClear);
             this.groupBox2.Controls.Add(this.txtGRemark);
             this.groupBox2.Controls.Add(this.btnGSave);
             this.groupBox2.Controls.Add(this.dtpGDate);
@@ -208,6 +223,17 @@
             this.groupBox2.Size = new System.Drawing.Size(536, 587);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
+            // 
+            // btnGClear
+            // 
+            this.btnGClear.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGClear.Location = new System.Drawing.Point(193, 529);
+            this.btnGClear.Name = "btnGClear";
+            this.btnGClear.Size = new System.Drawing.Size(297, 42);
+            this.btnGClear.TabIndex = 13;
+            this.btnGClear.Text = "Clear";
+            this.btnGClear.UseVisualStyleBackColor = true;
+            this.btnGClear.Click += new System.EventHandler(this.btnGClear_Click);
             // 
             // txtGRemark
             // 
@@ -392,5 +418,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnGClear;
     }
 }
