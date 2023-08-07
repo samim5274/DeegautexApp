@@ -26,12 +26,15 @@ namespace Deegautex
         {
             var logus = MotherForm.LcurrentUser;
             lblUser.Text = "" + logus;
+            dtpDate.Value = DateTime.Now;
+            dtpGDate.Value = DateTime.Now;
             FillReceiver();
             FillGiver();
             ClearText();
             ClearTextG();
         }
 
+        
         private void ClearTextG()
         {
             dtpGDate.Value = DateTime.Now;
@@ -180,5 +183,6 @@ namespace Deegautex
         {
             ClearTextG();
         }
+        
     }
 }

@@ -41,8 +41,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvTaking = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvGiven = new System.Windows.Forms.DataGridView();
             this.btnGClear = new System.Windows.Forms.Button();
             this.txtGRemark = new System.Windows.Forms.TextBox();
             this.btnGSave = new System.Windows.Forms.Button();
@@ -58,7 +60,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaking)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGiven)).BeginInit();
             this.SuspendLayout();
             // 
             // lblBack
@@ -77,39 +81,39 @@
             // dtpDate
             // 
             this.dtpDate.Enabled = false;
-            this.dtpDate.Location = new System.Drawing.Point(193, 47);
+            this.dtpDate.Location = new System.Drawing.Point(153, 47);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(297, 29);
+            this.dtpDate.Size = new System.Drawing.Size(246, 29);
             this.dtpDate.TabIndex = 1;
             // 
             // cbxReceiver
             // 
             this.cbxReceiver.FormattingEnabled = true;
-            this.cbxReceiver.Location = new System.Drawing.Point(193, 112);
+            this.cbxReceiver.Location = new System.Drawing.Point(153, 112);
             this.cbxReceiver.Name = "cbxReceiver";
-            this.cbxReceiver.Size = new System.Drawing.Size(297, 29);
+            this.cbxReceiver.Size = new System.Drawing.Size(246, 29);
             this.cbxReceiver.TabIndex = 2;
             // 
             // txtPurpose
             // 
-            this.txtPurpose.Location = new System.Drawing.Point(193, 179);
+            this.txtPurpose.Location = new System.Drawing.Point(153, 179);
             this.txtPurpose.Name = "txtPurpose";
-            this.txtPurpose.Size = new System.Drawing.Size(297, 29);
+            this.txtPurpose.Size = new System.Drawing.Size(246, 29);
             this.txtPurpose.TabIndex = 3;
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(193, 245);
+            this.txtRemark.Location = new System.Drawing.Point(153, 245);
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(297, 116);
+            this.txtRemark.Size = new System.Drawing.Size(246, 116);
             this.txtRemark.TabIndex = 4;
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(193, 402);
+            this.txtAmount.Location = new System.Drawing.Point(153, 402);
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(297, 29);
+            this.txtAmount.Size = new System.Drawing.Size(246, 29);
             this.txtAmount.TabIndex = 5;
             this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             // 
@@ -127,7 +131,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 111);
+            this.label1.Location = new System.Drawing.Point(10, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(134, 30);
             this.label1.TabIndex = 7;
@@ -137,7 +141,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(59, 178);
+            this.label2.Location = new System.Drawing.Point(56, 178);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 30);
             this.label2.TabIndex = 8;
@@ -147,7 +151,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 288);
+            this.label3.Location = new System.Drawing.Point(62, 288);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 30);
             this.label3.TabIndex = 9;
@@ -157,7 +161,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(59, 401);
+            this.label4.Location = new System.Drawing.Point(56, 401);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(88, 30);
             this.label4.TabIndex = 10;
@@ -167,9 +171,9 @@
             // 
             this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(193, 471);
+            this.btnSave.Location = new System.Drawing.Point(153, 471);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(297, 42);
+            this.btnSave.Size = new System.Drawing.Size(246, 42);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -177,6 +181,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dgvTaking);
             this.groupBox1.Controls.Add(this.btnClear);
             this.groupBox1.Controls.Add(this.txtRemark);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -188,18 +193,31 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(54, 108);
+            this.groupBox1.Location = new System.Drawing.Point(17, 108);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(536, 587);
+            this.groupBox1.Size = new System.Drawing.Size(621, 587);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
+            // 
+            // dgvTaking
+            // 
+            this.dgvTaking.AllowUserToAddRows = false;
+            this.dgvTaking.AllowUserToDeleteRows = false;
+            this.dgvTaking.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvTaking.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTaking.Location = new System.Drawing.Point(418, 47);
+            this.dgvTaking.Name = "dgvTaking";
+            this.dgvTaking.ReadOnly = true;
+            this.dgvTaking.Size = new System.Drawing.Size(186, 524);
+            this.dgvTaking.TabIndex = 13;
             // 
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(193, 529);
+            this.btnClear.Location = new System.Drawing.Point(153, 529);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(297, 42);
+            this.btnClear.Size = new System.Drawing.Size(246, 42);
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -207,6 +225,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dgvGiven);
             this.groupBox2.Controls.Add(this.btnGClear);
             this.groupBox2.Controls.Add(this.txtGRemark);
             this.groupBox2.Controls.Add(this.btnGSave);
@@ -218,18 +237,31 @@
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtGAmount);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(668, 108);
+            this.groupBox2.Location = new System.Drawing.Point(644, 108);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(536, 587);
+            this.groupBox2.Size = new System.Drawing.Size(624, 587);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
+            // 
+            // dgvGiven
+            // 
+            this.dgvGiven.AllowUserToAddRows = false;
+            this.dgvGiven.AllowUserToDeleteRows = false;
+            this.dgvGiven.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvGiven.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvGiven.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGiven.Location = new System.Drawing.Point(420, 47);
+            this.dgvGiven.Name = "dgvGiven";
+            this.dgvGiven.ReadOnly = true;
+            this.dgvGiven.Size = new System.Drawing.Size(186, 524);
+            this.dgvGiven.TabIndex = 14;
             // 
             // btnGClear
             // 
             this.btnGClear.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGClear.Location = new System.Drawing.Point(193, 529);
+            this.btnGClear.Location = new System.Drawing.Point(152, 529);
             this.btnGClear.Name = "btnGClear";
-            this.btnGClear.Size = new System.Drawing.Size(297, 42);
+            this.btnGClear.Size = new System.Drawing.Size(248, 42);
             this.btnGClear.TabIndex = 13;
             this.btnGClear.Text = "Clear";
             this.btnGClear.UseVisualStyleBackColor = true;
@@ -237,19 +269,19 @@
             // 
             // txtGRemark
             // 
-            this.txtGRemark.Location = new System.Drawing.Point(193, 245);
+            this.txtGRemark.Location = new System.Drawing.Point(152, 245);
             this.txtGRemark.Multiline = true;
             this.txtGRemark.Name = "txtGRemark";
-            this.txtGRemark.Size = new System.Drawing.Size(297, 116);
+            this.txtGRemark.Size = new System.Drawing.Size(248, 116);
             this.txtGRemark.TabIndex = 4;
             // 
             // btnGSave
             // 
             this.btnGSave.Enabled = false;
             this.btnGSave.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGSave.Location = new System.Drawing.Point(193, 471);
+            this.btnGSave.Location = new System.Drawing.Point(152, 471);
             this.btnGSave.Name = "btnGSave";
-            this.btnGSave.Size = new System.Drawing.Size(297, 42);
+            this.btnGSave.Size = new System.Drawing.Size(248, 42);
             this.btnGSave.TabIndex = 11;
             this.btnGSave.Text = "Save";
             this.btnGSave.UseVisualStyleBackColor = true;
@@ -258,9 +290,9 @@
             // dtpGDate
             // 
             this.dtpGDate.Enabled = false;
-            this.dtpGDate.Location = new System.Drawing.Point(193, 47);
+            this.dtpGDate.Location = new System.Drawing.Point(152, 47);
             this.dtpGDate.Name = "dtpGDate";
-            this.dtpGDate.Size = new System.Drawing.Size(297, 29);
+            this.dtpGDate.Size = new System.Drawing.Size(248, 29);
             this.dtpGDate.TabIndex = 1;
             // 
             // label5
@@ -276,9 +308,9 @@
             // cbxGiven
             // 
             this.cbxGiven.FormattingEnabled = true;
-            this.cbxGiven.Location = new System.Drawing.Point(193, 112);
+            this.cbxGiven.Location = new System.Drawing.Point(152, 112);
             this.cbxGiven.Name = "cbxGiven";
-            this.cbxGiven.Size = new System.Drawing.Size(297, 29);
+            this.cbxGiven.Size = new System.Drawing.Size(248, 29);
             this.cbxGiven.TabIndex = 2;
             // 
             // label6
@@ -293,9 +325,9 @@
             // 
             // txtGPurpose
             // 
-            this.txtGPurpose.Location = new System.Drawing.Point(193, 179);
+            this.txtGPurpose.Location = new System.Drawing.Point(152, 179);
             this.txtGPurpose.Name = "txtGPurpose";
-            this.txtGPurpose.Size = new System.Drawing.Size(297, 29);
+            this.txtGPurpose.Size = new System.Drawing.Size(248, 29);
             this.txtGPurpose.TabIndex = 3;
             // 
             // label7
@@ -310,9 +342,9 @@
             // 
             // txtGAmount
             // 
-            this.txtGAmount.Location = new System.Drawing.Point(193, 402);
+            this.txtGAmount.Location = new System.Drawing.Point(152, 402);
             this.txtGAmount.Name = "txtGAmount";
-            this.txtGAmount.Size = new System.Drawing.Size(297, 29);
+            this.txtGAmount.Size = new System.Drawing.Size(248, 29);
             this.txtGAmount.TabIndex = 5;
             this.txtGAmount.TextChanged += new System.EventHandler(this.txtGAmount_TextChanged);
             // 
@@ -330,7 +362,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("NSimSun", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(118, 70);
+            this.label10.Location = new System.Drawing.Point(81, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(375, 35);
             this.label10.TabIndex = 14;
@@ -382,8 +414,10 @@
             this.Load += new System.EventHandler(this.TakingForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaking)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGiven)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +454,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnGClear;
+        private System.Windows.Forms.DataGridView dgvTaking;
+        private System.Windows.Forms.DataGridView dgvGiven;
     }
 }

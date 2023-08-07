@@ -16,7 +16,7 @@ namespace Deegautex
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MotherForm());
+            Application.Run(new TakingForm());
         }
     }
 }
