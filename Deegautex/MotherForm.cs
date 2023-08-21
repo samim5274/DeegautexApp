@@ -213,5 +213,11 @@ namespace Deegautex
             var obj = new EmplyeeInfoForm();
             obj.ShowDialog();
         }
+
+        private void reportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var obj = new TakindAndGivenDetailForm();
+            obj.ShowDialog();
+        }
     }
 }

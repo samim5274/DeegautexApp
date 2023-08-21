@@ -51,6 +51,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -106,7 +107,8 @@
             // transectionToolStripMenuItem
             // 
             this.transectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.imTakingToolStripMenuItem});
+            this.imTakingToolStripMenuItem,
+            this.reportToolStripMenuItem});
             this.transectionToolStripMenuItem.Name = "transectionToolStripMenuItem";
             this.transectionToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.transectionToolStripMenuItem.Text = "Transection";
@@ -289,6 +291,13 @@
             this.txtUsername.TabIndex = 7;
             this.txtUsername.Text = "samim";
             // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.reportToolStripMenuItem.Text = "Report";
+            this.reportToolStripMenuItem.Click += new System.EventHandler(this.reportToolStripMenuItem_Click);
+            // 
             // MotherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -340,5 +349,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem imTakingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem joinNewEmloyeeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
     }
 }
